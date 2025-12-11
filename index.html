@@ -2,76 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Streamly — Browser-only</title>
+  <title>Streamly — Watch Your Videos</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">Streamly</div>
-    <div class="search-wrap">
-      <input id="search" placeholder="Search movies, shows..." />
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand" aria-hidden="true">
+        <svg class="brand-logo" width="38" height="38" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="4" fill="#fff" opacity="0.06"/>
+          <path d="M6 16V8h12v8H6z" fill="#fff" opacity="0.92"/>
+        </svg>
+        <span class="brand-text">Streamly</span>
+      </div>
+
+      <div class="search-wrap">
+        <label for="search" class="visually-hidden">Search</label>
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l4.99 4.99 1.49-1.49L15.5 14z"/></svg>
+          <input id="search" placeholder="Search movies, shows, people..." autocomplete="off" />
+          <button id="clear-search" class="icon-btn" title="Clear search" aria-label="Clear search" hidden>
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71L12 12l6.3 6.29-1.41 1.41L10.59 13.4 4.29 19.71 2.88 18.3 9.19 12 2.88 5.71 4.29 4.3l6.3 6.29 6.29-6.29z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="header-actions" role="navigation" aria-label="User">
+        <button class="pill subtle">Kids</button>
+        <button class="pill outline">Categories</button>
+        <div class="profile-wrap">
+          <img class="profile" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><rect width='100%' height='100%' fill='%23888'/></svg>" alt="Profile" />
+        </div>
+      </nav>
     </div>
-    <nav class="header-actions">
-      <button id="add-btn" class="pill">Add</button>
-      <img class="profile" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><rect width='100%' height='100%' fill='%23888'/></svg>" alt="profile" />
-    </nav>
   </header>
 
   <main>
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" role="region" aria-label="Featured">
+      <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
       <div class="hero-gradient"></div>
-      <div class="hero-content">
-        <h1 id="hero-title">Featured Title</h1>
-        <p id="hero-desc">Add your videos from the Add button. Content is stored in your browser.</p>
-        <div class="hero-actions">
-          <button id="play-hero" class="btn primary">Play</button>
-          <button id="more-info" class="btn outline">More Info</button>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1 id="hero-title">Featured Title</h1>
+          <p id="hero-desc">Catalog loaded from catalog.json. Edit the repository to add your content. This hero area uses the item theme color as accent.</p>
+          <div class="hero-actions">
+            <button id="play-hero" class="btn primary large" aria-label="Play featured"> 
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              Play
+            </button>
+            <button id="more-info" class="btn ghost large" aria-label="More info about featured">More Info</button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <img id="hero-poster" class="hero-poster" src="" alt="" />
         </div>
       </div>
-      <img id="hero-poster" class="hero-poster" src="" alt="">
     </section>
 
-    <section id="rows" class="rows"></section>
+    <section id="rows" class="rows" aria-live="polite"></section>
   </main>
 
-  <div id="player-modal" class="modal hidden" aria-hidden="true">
+  <div id="player-modal" class="modal hidden" aria-hidden="true" role="dialog" aria-label="Player">
     <div class="modal-backdrop"></div>
-    <div class="modal-card" role="dialog" aria-modal="true">
-      <button id="close-modal" class="close-btn" aria-label="Close">✕</button>
-      <h2 id="modal-title"></h2>
-      <video id="modal-player" controls preload="auto" style="width:100%;max-height:65vh;background:#000"></video>
+    <div class="modal-card">
+      <button id="close-modal" class="close-btn" aria-label="Close player">✕</button>
+      <h2 id="modal-title" class="modal-title"></h2>
+      <video id="modal-player" controls preload="auto" class="modal-video"></video>
       <div id="modal-meta" class="modal-meta"></div>
     </div>
   </div>
 
-  <!-- Add / Edit Modal -->
-  <div id="editor-modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-backdrop"></div>
-    <div class="modal-card" style="max-width:700px;">
-      <button id="close-editor" class="close-btn" aria-label="Close">✕</button>
-      <h2>Add Video</h2>
-      <form id="editor-form">
-        <label>Title<input name="title" required></label>
-        <label>Year<input name="year" type="number"></label>
-        <label>Category<input name="category" placeholder="e.g., Shorts, Vlogs"></label>
-        <label>Theme Color<input name="themeColor" type="color" value="#e50914"></label>
-        <label>Description<textarea name="description" rows="4"></textarea></label>
-        <label>Poster image (optional)<input name="poster" type="file" accept="image/*"></label>
-        <label>Video file (required)<input name="video" type="file" accept="video/*" required></label>
-        <div style="display:flex;gap:12px;margin-top:12px">
-          <button type="submit" class="btn primary">Save</button>
-          <button type="button" id="clear-editor" class="btn outline">Clear</button>
-        </div>
-        <div id="editor-status" style="margin-top:8px;color:var(--muted)"></div>
-      </form>
-    </div>
-  </div>
-
   <footer class="site-footer">
-    <small>Browser-only version — data stored locally in your browser.</small>
+    <small>Streamly — your personal streaming UI. Keep catalog.json updated in the repository.</small>
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    // small nicety: show/hide clear button on search
+    const search = document.getElementById('search');
+    const clearBtn = document.getElementById('clear-search');
+    search.addEventListener('input', () => {
+      clearBtn.hidden = !search.value.trim();
+    });
+    clearBtn.addEventListener('click', () => { search.value=''; search.dispatchEvent(new Event('input')); search.focus(); });
+  </script>
 </body>
 </html>
