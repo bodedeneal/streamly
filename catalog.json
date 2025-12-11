@@ -1,0 +1,26 @@
+[
+  {
+    "id": "my-first-video-20251211",
+    "title": "My First Video",
+    "year": 2025,
+    "description": "An example video in the repository.",
+    "poster": "media/posters/my-first-poster.jpg",
+    "category": "Shorts",
+    "themeColor": "#ff7a59",
+    "sources": [
+      { "type": "mp4", "url": "media/videos/my-first-video.mp4" }
+    ]
+  },
+  {
+    "id": "nosferatu-1922",
+    "title": "Nosferatu (1922)",
+    "year": 1922,
+    "description": "Silent-era horror classic (public domain).",
+    "poster": "https://archive.org/services/img/nosferatu1922",
+    "category": "Horror",
+    "themeColor": "#6b4bff",
+    "sources": [
+      { "type": "mp4", "url": "https://archive.org/download/Nosferatu_1025/nosferatu_512kb.mp4" }
+    ]
+  }
+]
