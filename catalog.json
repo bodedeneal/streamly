@@ -20,7 +20,7 @@
     "category": "Fantasy",
     "themeColor": "#6b5bff",
     "sources": [
-     { "type": "iframe", "url": "<iframe src="https://archive.org/embed/the-princess-bride-1987_202505" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen=""></iframe>"}
+     { "type": "mp4", "url": "https://archive.org/embed/the-princess-bride-1987_202505.mp4"}
     ]
   },
   {
