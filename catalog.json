@@ -35,6 +35,18 @@
      { "type": "mp4", "url": "https://archive.org/download/jurassic-park-1993-2025-06-8-8-59-0/Jurassic%20Park%20%281993%29%202025-06-8-8-59-0.mp4"}
     ]
   },
+    {
+    "id": "jurrasicpark-c",
+    "title": "Jurrasic Park",
+    "year": 1993,
+    "description": "A classic tale of true love and high adventure.",
+    "poster": "61iF3RSsLsL._AC_UL495_SR435,495_.jpg",
+    "category": "TV Shows",
+    "themeColor": "#6b5bff",
+    "sources": [
+     { "type": "mp4", "url": "https://archive.org/download/jurassic-park-1993-2025-06-8-8-59-0/Jurassic%20Park%20%281993%29%202025-06-8-8-59-0.mp4"}
+    ]
+  },
   {
     "id": "the-princess-bride-1987-b",
     "title": "The Princess Bride",
