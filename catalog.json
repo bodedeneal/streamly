@@ -24,6 +24,18 @@
     ]
   },
   {
+    "id": "jurrasicpark-b",
+    "title": "Jurrasic Park",
+    "year": 1993,
+    "description": "A classic tale of true love and high adventure.",
+    "poster": "IMG_3316.jpeg",
+    "category": "Movies",
+    "themeColor": "#6b5bff",
+    "sources": [
+     { "type": "mp4", "url": "https://archive.org/download/jurassic-park-1993-2025-06-8-8-59-0/Jurassic%20Park%20%281993%29%202025-06-8-8-59-0.mp4"}
+    ]
+  },
+  {
     "id": "the-princess-bride-1987-b",
     "title": "The Princess Bride",
     "year": 1987,
