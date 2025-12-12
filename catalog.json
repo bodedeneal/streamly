@@ -23,7 +23,7 @@
       { "type": "mp4", "url": "https://archive.org/download/Nosferatu_1025/nosferatu_512kb.mp4" }
     ]
   },
-    {
+  {
     "id": "nosferatu-1922",
     "title": "The Princess Bride 1987",
     "year": 1922,
@@ -34,5 +34,5 @@
     "sources": [
       { "type": "mp4", "url": "https://archive.org/download/Nosferatu_1025/nosferatu_512kb.mp4" }
     ]
-  }
+  },
 ]
