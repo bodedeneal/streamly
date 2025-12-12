@@ -22,5 +22,17 @@
     "sources": [
       { "type": "mp4", "url": "https://archive.org/download/Nosferatu_1025/nosferatu_512kb.mp4" }
     ]
+  },
+    {
+    "id": "nosferatu-1922",
+    "title": "The Princess Bride 1987",
+    "year": 1922,
+    "description": "Silent-era horror classic (public domain).",
+    "poster": "p_princessbride_19348_769a80b9.jpg",
+    "category": "Horror",
+    "themeColor": "#6b4bff",
+    "sources": [
+      { "type": "mp4", "url": "https://archive.org/download/Nosferatu_1025/nosferatu_512kb.mp4" }
+    ]
   }
 ]
